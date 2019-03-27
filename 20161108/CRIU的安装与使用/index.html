@@ -7,15 +7,26 @@
   
   
   
-  <title>Archives: 2019 | 小鱼游水</title>
+  <title>CRIU的安装与使用 | 小鱼游水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小鱼游水">
-<meta property="og:url" content="http://www.yujinyu.site/archives/2019/index.html">
+  <meta name="description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
+<meta name="keywords" content="CRIU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CRIU的安装与使用">
+<meta property="og:url" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/index.html">
 <meta property="og:site_name" content="小鱼游水">
+<meta property="og:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108163852230.png">
+<meta property="og:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108163926605.png">
+<meta property="og:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108163956808.png">
+<meta property="og:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108164007875.png">
+<meta property="og:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108164012230.png">
+<meta property="og:updated_time" content="2019-03-27T11:59:48.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小鱼游水">
+<meta name="twitter:title" content="CRIU的安装与使用">
+<meta name="twitter:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
+<meta name="twitter:image" content="http://www.yujinyu.site/20161108/CRIU的安装与使用/20161108163852230.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -38,8 +49,8 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
-          isArchive: true,
+          isPost: true,
+          isArchive: false,
           isTag: false,
           isCategory: false,
           open_in_new: false
@@ -266,60 +277,237 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-CRIU的安装与使用" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/20190325/阅读笔记01-atc2017-bigc/" class="archive-article-date">
-      <time datetime="2019-03-25T09:06:05.000Z" itemprop="datePublished">03-25</time>
+    <div class="article-meta">
+      <a href="/20161108/CRIU的安装与使用/" class="article-date">
+      <time datetime="2016-11-08T10:34:51.000Z" itemprop="datePublished">2016-11-08 Tuesday</time>
 </a>
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CRIU的安装与使用
     </h1>
   
 
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/阅读笔记/">阅读笔记</a>
+    <a class="article-category-link" href="/categories/搞机记录/">搞机记录</a>
     </div>
 
 
-          
+        
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/资源调度/">资源调度</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRIU/">CRIU</a></li></ul>
     </div>
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="CRIU安装："><a href="#CRIU安装：" class="headerlink" title="CRIU安装："></a>CRIU安装：</h3><h5 id="获取CRIU的源代码"><a href="#获取CRIU的源代码" class="headerlink" title="获取CRIU的源代码"></a>获取CRIU的源代码</h5><p>git clone<a href="https://github.com/xemul/criu" target="_blank" rel="noopener">https://github.com/xemul/criu</a><br>或者<br>wget <a href="http://download.openvz.org/criu/criu-x.x.tar.bz2" target="_blank" rel="noopener">http://download.openvz.org/criu/criu-x.x.tar.bz2</a><br>tar -xvf criu-x.x.tar.bz2</p>
+<h5 id="安装编译依赖软件"><a href="#安装编译依赖软件" class="headerlink" title="安装编译依赖软件"></a>安装编译依赖软件</h5><p>yum install gcc make -y<br>yum install glibc-devel.i686 protobuf protobuf-c protobuf-c-devel protobuf-compiler protobuf-devel protobuf-python libaio-devel libcap-devel libnl3-devel -y<br>在CRIU代码根目录下，执行编译命令 make</p>
+<h5 id="安装依赖软件"><a href="#安装依赖软件" class="headerlink" title="安装依赖软件"></a>安装依赖软件</h5><p>yum install asciidoc xmlto -y<br>在CRIU代码根目录下，运行安装命令 make install</p>
+<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查, 创建一个无限循环脚本文件。</p>
+<p><img src="/20161108/CRIU的安装与使用/20161108163852230.png" alt></p>
+<p>并运行脚本文件。</p>
+<p>[root@de69 ~]# chmod +x test.sh</p>
+<p>[root@de69 ~]# ./test.sh</p>
+<p>创建一个新的终端，获得test.sh的pid，“pgrep -f test.sh”</p>
+<p>[root@de69 ~]# criu dump -t $PID –images-dir chkpoint –shell-job</p>
+<p><img src="/20161108/CRIU的安装与使用/20161108163926605.png" alt></p>
+<p>[root@de69 ~]# criu restore -t 23267 –images-dir chkpoint/ –shell-job<br> 运行命令之后test.sh恢复正常运行。</p>
+<h4 id="在使用CRIU对Docker容器进行操作时出现以下提示错误"><a href="#在使用CRIU对Docker容器进行操作时出现以下提示错误" class="headerlink" title="在使用CRIU对Docker容器进行操作时出现以下提示错误"></a>在使用CRIU对Docker容器进行操作时出现以下提示错误</h4><blockquote>
+<p>Error (criu/namespaces.c:403): Can’t dump nested pid namespace for 23025</p>
+<p>Error (criu/namespaces.c:607): Can’t make pidns id</p>
+<p>Error (criu/cr-dump.c:1625): Dumping FAILED.</p>
+</blockquote>
+<p><img src="/20161108/CRIU的安装与使用/20161108163956808.png" alt></p>
+<p>参看pid=23025的应用</p>
+<p><img src="/20161108/CRIU的安装与使用/20161108164007875.png" alt></p>
+<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/<br><img src="/20161108/CRIU的安装与使用/20161108164012230.png" alt></p>
+<p>原因是当前CRIU并不完善（如不支持seccomp、不支持外部终端、挂载的文件系统可读等），Docker容器对宿主机的应用（例如“/bin/bash”等）有依赖，而CRIU不能对非Docker容器进程树中的进程设置检查点，从而导致Checkpoint/Restore失败。</p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
+        <p><span>发布时间:</span>2016年11月08日 - 18时34分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 19时59分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/20161108/CRIU的安装与使用/" title="CRIU的安装与使用">http://www.yujinyu.site/20161108/CRIU的安装与使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/20161108/CRIU的安装与使用/　　作者: Jason Jinyu Yu" title></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用Kubernetes1.4.6源码搭建容器集群
+        
+      </div>
+    </a>
+  
+  
+    <a href="/20160611/KVM虚拟机在线迁移环境配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KVM虚拟机在线迁移环境配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CRIU安装："><span class="toc-number">1.</span> <span class="toc-text">CRIU安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#获取CRIU的源代码"><span class="toc-number">1.0.1.</span> <span class="toc-text">获取CRIU的源代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装编译依赖软件"><span class="toc-number">1.0.2.</span> <span class="toc-text">安装编译依赖软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装依赖软件"><span class="toc-number">1.0.3.</span> <span class="toc-text">安装依赖软件</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#CRIU使用："><span class="toc-number">2.</span> <span class="toc-text">CRIU使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在使用CRIU对Docker容器进行操作时出现以下提示错误"><span class="toc-number">2.1.</span> <span class="toc-text">在使用CRIU对Docker容器进行操作时出现以下提示错误</span></a></li></ol></li>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+    <style>
+        .toc {
+            white-space: nowrap;
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".toc li a").mouseover(function() {
+                var title = $(this).attr('href');
+                $(this).attr("title", title);
+            });
+        })
+    </script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
 
     
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/" title="上一篇: 使用Kubernetes1.4.6源码搭建容器集群">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/20160611/KVM虚拟机在线迁移环境配置/" title="下一篇: KVM虚拟机在线迁移环境配置">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 
 </div>
       <footer id="footer">
@@ -432,18 +620,6 @@ MathJax.Hub.Queue(function() {
         };
     })
 </script>
-
-    <button class="hide-labels">TAG 开关</button>
-    
-<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            $("button").click(function() {
-                $(".article-info").toggle(200);
-            });
-        });
-    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
