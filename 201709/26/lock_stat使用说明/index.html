@@ -17,14 +17,14 @@
 <meta property="og:site_name" content="小鱼游水">
 <meta property="og:description" content="官方文档From $(path}/linux-x.x.x/Documentation/locking/lockstat.txt LOCK STATISTICS WHAT  As the name suggests, it provides statistics on locks.  WHY  Because things like lock contention can severely impa">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.yujinyu.site/assets/images/posts/20170926/lock1.PNG">
-<meta property="og:image" content="http://www.yujinyu.site/assets/images/posts/20170926/lock1.PNG">
-<meta property="og:image" content="http://www.yujinyu.site/assets/images/posts/20170926/lock1.PNG">
-<meta property="og:updated_time" content="2019-03-27T17:13:28.000Z">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock1.PNG">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock2.PNG">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock3.PNG">
+<meta property="og:updated_time" content="2019-03-27T11:09:07.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lock_stat使用记录">
 <meta name="twitter:description" content="官方文档From $(path}/linux-x.x.x/Documentation/locking/lockstat.txt LOCK STATISTICS WHAT  As the name suggests, it provides statistics on locks.  WHY  Because things like lock contention can severely impa">
-<meta name="twitter:image" content="http://www.yujinyu.site/assets/images/posts/20170926/lock1.PNG">
+<meta name="twitter:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock1.PNG">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -374,14 +374,14 @@ __release
 <p>Look at the current lock statistics:</p>
 <p>( line numbers not part of actual output, done for clarity in the explanation below )</p>
 <p><code># less /proc/lock_stat</code></p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="less"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock1.PNG" alt="less"></p>
 <p>This excerpt shows the first two lock class statistics. Line 01 shows the output version - each time the format changes this will be updated. Line 02-04 show the header with column descriptions. Lines 05-18 and 20-31 show the actual statistics. These statistics come in two parts; the actual stats separated by a short separator (line 08, 13) from the contention points.<br>Lines 09-12 show the first 4 recorded contention points (the code which tries to get the lock) and lines 14-17 show the first 4 recorded contended points (the lock holder). It is possible that the max<br>con-bounces point is missing in the statistics.</p>
 <p>The first lock (05-18) is a read/write lock, and shows two lines above the short separator. The contention points don’t match the column descriptors, they have two: contentions and [<ip>] symbol. The second set of contention<br>points are the points we’re contending with.</ip></p>
 <p>The integer part of the time values is in us.</p>
 <p>Dealing with nested locks, subclasses may appear:             </p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="lock"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock2.PNG" alt="lock"></p>
 <p>Line 48 shows statistics for the second subclass (/1) of &amp;rq-&gt;lock class (subclass starts from 0), since in this case, as line 50 suggests, double_rq_lock actually acquires a nested lock of two spinlocks.<br>View the top contending locks:<br><code># grep : /proc/lock_stat | head</code>  </p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="head"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock3.PNG" alt="head"></p>
 <p>Clear the statistics:<br><code># echo 0 &gt; /proc/lock_stat</code>  </p>
 <h3 id="对某一进程或者应用进行lock-stat"><a href="#对某一进程或者应用进行lock-stat" class="headerlink" title="对某一进程或者应用进行lock stat"></a>对某一进程或者应用进行lock stat</h3><h5 id="关闭lock-stat"><a href="#关闭lock-stat" class="headerlink" title="关闭lock_stat"></a>关闭lock_stat</h5><p><code>echo 0 &gt; /proc/sys/kernel/lock_stat</code> </p>
 <h5 id="清空之前的统计数据"><a href="#清空之前的统计数据" class="headerlink" title="清空之前的统计数据"></a>清空之前的统计数据</h5><p><code>echo 0 &gt; /proc/lock_stat</code>  </p>
@@ -399,7 +399,7 @@ __release
         <p><span>本文标题:</span><a href="/201709/26/lock_stat使用说明/">lock_stat使用记录</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
         <p><span>发布时间:</span>2017年09月26日 - 11时32分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 01时13分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 19时09分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/201709/26/lock_stat使用说明/" title="lock_stat使用记录">http://www.yujinyu.site/201709/26/lock_stat使用说明/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/201709/26/lock_stat使用说明/　　作者: Jason Jinyu Yu" title></span>

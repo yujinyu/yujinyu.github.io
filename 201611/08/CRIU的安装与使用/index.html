@@ -17,16 +17,16 @@
 <meta property="og:site_name" content="小鱼游水">
 <meta property="og:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://img.blog.csdn.net/20161108163757245">
-<meta property="og:image" content="http://img.blog.csdn.net/20161108163852230">
-<meta property="og:image" content="http://img.blog.csdn.net/20161108163926605">
-<meta property="og:image" content="http://img.blog.csdn.net/20161108163956808">
-<meta property="og:image" content="http://img.blog.csdn.net/20161108164007875">
-<meta property="og:updated_time" content="2019-03-27T16:07:48.000Z">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163852230.png">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163926605.png">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163956808.png">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108164007875.png">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20161108/20161108164012230.png">
+<meta property="og:updated_time" content="2019-03-27T11:29:21.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CRIU的安装与使用">
 <meta name="twitter:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20161108163757245">
+<meta name="twitter:image" content="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163852230.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -324,26 +324,24 @@
         <h3 id="CRIU安装："><a href="#CRIU安装：" class="headerlink" title="CRIU安装："></a>CRIU安装：</h3><h5 id="获取CRIU的源代码"><a href="#获取CRIU的源代码" class="headerlink" title="获取CRIU的源代码"></a>获取CRIU的源代码</h5><p>git clone<a href="https://github.com/xemul/criu" target="_blank" rel="noopener">https://github.com/xemul/criu</a><br>或者<br>wget <a href="http://download.openvz.org/criu/criu-x.x.tar.bz2" target="_blank" rel="noopener">http://download.openvz.org/criu/criu-x.x.tar.bz2</a><br>tar -xvf criu-x.x.tar.bz2</p>
 <h5 id="安装编译依赖软件"><a href="#安装编译依赖软件" class="headerlink" title="安装编译依赖软件"></a>安装编译依赖软件</h5><p>yum install gcc make -y<br>yum install glibc-devel.i686 protobuf protobuf-c protobuf-c-devel protobuf-compiler protobuf-devel protobuf-python libaio-devel libcap-devel libnl3-devel -y<br>在CRIU代码根目录下，执行编译命令 make</p>
 <h5 id="安装依赖软件"><a href="#安装依赖软件" class="headerlink" title="安装依赖软件"></a>安装依赖软件</h5><p>yum install asciidoc xmlto -y<br>在CRIU代码根目录下，运行安装命令 make install</p>
-<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查</p>
-<p><img src="http://img.blog.csdn.net/20161108163757245" alt></p>
-<p>创建一个无限循环脚本文件。</p>
-<p><img src="http://img.blog.csdn.net/20161108163852230" alt></p>
+<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查, 创建一个无限循环脚本文件。</p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163852230.png" alt></p>
 <p>并运行脚本文件。</p>
 <p>[root@de69 ~]# chmod +x test.sh</p>
 <p>[root@de69 ~]# ./test.sh</p>
 <p>创建一个新的终端，获得test.sh的pid，“pgrep -f test.sh”</p>
 <p>[root@de69 ~]# criu dump -t $PID –images-dir chkpoint –shell-job</p>
-<p><img src="http://img.blog.csdn.net/20161108163926605" alt></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163926605.png" alt></p>
 <p>[root@de69 ~]# criu restore -t 23267 –images-dir chkpoint/ –shell-job<br> 运行命令之后test.sh恢复正常运行。</p>
 <h4 id="在使用CRIU对Docker容器进行操作时出现以下提示错误"><a href="#在使用CRIU对Docker容器进行操作时出现以下提示错误" class="headerlink" title="在使用CRIU对Docker容器进行操作时出现以下提示错误"></a>在使用CRIU对Docker容器进行操作时出现以下提示错误</h4><blockquote>
 <p>Error (criu/namespaces.c:403): Can’t dump nested pid namespace for 23025</p>
 <p>Error (criu/namespaces.c:607): Can’t make pidns id</p>
 <p>Error (criu/cr-dump.c:1625): Dumping FAILED.</p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20161108163956808" alt></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163956808.png" alt></p>
 <p>参看pid=23025的应用</p>
-<p><img src="http://img.blog.csdn.net/20161108164007875" alt></p>
-<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/</p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108164007875.png" alt></p>
+<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20161108/20161108164012230.png" alt></p>
 <p>原因是当前CRIU并不完善（如不支持seccomp、不支持外部终端、挂载的文件系统可读等），Docker容器对宿主机的应用（例如“/bin/bash”等）有依赖，而CRIU不能对非Docker容器进程树中的进程设置检查点，从而导致Checkpoint/Restore失败。</p>
 
       
@@ -356,7 +354,7 @@
         <p><span>本文标题:</span><a href="/201611/08/CRIU的安装与使用/">CRIU的安装与使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
         <p><span>发布时间:</span>2016年11月08日 - 18时34分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 00时07分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 19时29分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/201611/08/CRIU的安装与使用/" title="CRIU的安装与使用">http://www.yujinyu.site/201611/08/CRIU的安装与使用/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/201611/08/CRIU的安装与使用/　　作者: Jason Jinyu Yu" title></span>

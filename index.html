@@ -302,7 +302,7 @@
           
         <h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><p>会议：<a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/chen-wei" target="_blank" rel="noopener">the 2017 USENIX Annual Technical Conference (USENIX ATC ‘17)</a><br>文章原文：<a href="https://www.usenix.org/system/files/conference/atc17/atc17-chen_wei.pdf" target="_blank" rel="noopener">paper</a><br>会议报告：<a href="https://www.usenix.org/sites/default/files/conference/protected-files/atc_slides_chen_wei_0.pdf" target="_blank" rel="noopener">ppt</a></p>
 <h1 id="动机与问题"><a href="#动机与问题" class="headerlink" title="动机与问题"></a>动机与问题</h1><p>为了提高集群资源利用率，数据中心趋向于部署异构负载。但是不同负载特性和需求不同，一方面，对延迟敏感的任务需要尽可能快地被调度到目的节点；另一方面，长时间运行的任务应该在有资源空闲的时候占用集群空闲资源来提高资源利用率。问题的关键在于如何在保证短作业性能的同时，确保集群的资源利用率最大化。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>文章提出了一种基于容器的任务抢占方式。由于容器具有可以动态调整其运行资源的特性，通过使用容器作为任务的执行单元可以实现对任务资源的动态调整。<br>基于Hadoop YARN的架构如图所示。<br><img src="/assets/images/posts/20190325/bigc-arch.png" alt="bigc-arch"></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>文章提出了一种基于容器的任务抢占方式。由于容器具有可以动态调整其运行资源的特性，通过使用容器作为任务的执行单元可以实现对任务资源的动态调整。<br>基于Hadoop YARN的架构如图所示。<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20190325/bigc-arch.png" alt="bigc-arch"></p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1>
       
     </div>
@@ -343,7 +343,7 @@
   
     <div class="article-meta">
       <a href="/201806/15/使用ss或者ssr实现Linux全局FQ/" class="article-date">
-      <time datetime="2018-06-15T12:38:05.000Z" itemprop="datePublished">2018-06-15 Friday</time>
+      <time datetime="2018-06-15T09:04:05.000Z" itemprop="datePublished">2018-06-15 Friday</time>
 </a>
 
     </div>
@@ -416,7 +416,7 @@
   
     <div class="article-meta">
       <a href="/201804/11/基于Kubernetes部署kong 0.13.0/" class="article-date">
-      <time datetime="2018-04-11T12:38:05.000Z" itemprop="datePublished">2018-04-11 Wednesday</time>
+      <time datetime="2018-04-11T09:04:25.000Z" itemprop="datePublished">2018-04-11 Wednesday</time>
 </a>
 
     </div>
@@ -463,7 +463,7 @@
 <h3 id="2-在kong中添加api"><a href="#2-在kong中添加api" class="headerlink" title="2. 在kong中添加api"></a>2. 在kong中添加api</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X POST --url http://<span class="variable">$&#123;kubernetes_master_ip&#125;</span>:<span class="variable">$&#123;kong_admin_nodeport&#125;</span>/apis/ --data <span class="string">'name=nginx-example-api'</span>   --data <span class="string">'hosts=nginx-example.com'</span>   --data <span class="string">'upstream_url=http://my-nginx'</span></span><br></pre></td></tr></table></figure>
 <p>说明：如果部署Nginx应用和Kong不在同一namespace，则需修改命令中“<br>upstream_url”的值，加入kong在defaul而Nginx在test命名空间，那么upstream_url则应修改为“upstream_url=<a href="http://my_nginx.test.svc.cluster.local&quot;（cluster-domain默认为cluster.local）。" target="_blank" rel="noopener">http://my_nginx.test.svc.cluster.local&quot;（cluster-domain默认为cluster.local）。</a></p>
 <h3 id="3-使用api访问后端Nginx服务"><a href="#3-使用api访问后端Nginx服务" class="headerlink" title="3. 使用api访问后端Nginx服务"></a>3. 使用api访问后端Nginx服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X GET  --url http://<span class="variable">$&#123;kubernetes_master_ip&#125;</span>:$(kong_proxy_nodeport&#125;/  --header <span class="string">'Host: nginx-example.com'</span></span><br></pre></td></tr></table></figure>
-<p>结果如图所示，<br><img src="https://github.com/yujinyu/MyPictureBed/blob/master/BlogImages/2018-4-11/clipboard.png" alt="enter description here"></p>
+<p>结果如图所示，<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20180411/clipboard.png" alt="enter description here"></p>
 <h1 id="（四）-到此已成功运行kong。"><a href="#（四）-到此已成功运行kong。" class="headerlink" title="（四） 到此已成功运行kong。"></a>（四） 到此已成功运行kong。</h1><hr>
 <p>参考资料：<br>[1]. <a href="https://github.com/Kong/kong-dist-kubernetes" target="_blank" rel="noopener">https://github.com/Kong/kong-dist-kubernetes</a><br>[2]. <a href="https://getkong.org/install/kubernetes/" target="_blank" rel="noopener">https://getkong.org/install/kubernetes/</a><br>[3]. <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/storage/storage-classes/</a><br>[4]. <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/</a><br>[5]. <a href="https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes" target="_blank" rel="noopener">https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes</a><br>[6]. <a href="https://getkong.org/docs/0.13.x/getting-started/configuring-a-service/" target="_blank" rel="noopener">https://getkong.org/docs/0.13.x/getting-started/configuring-a-service/</a>     </p>
 
@@ -506,7 +506,7 @@
   
     <div class="article-meta">
       <a href="/201710/20/使用consul构建docker overlay网络/" class="article-date">
-      <time datetime="2017-10-20T08:30:43.000Z" itemprop="datePublished">2017-10-20 Friday</time>
+      <time datetime="2017-10-20T09:30:43.000Z" itemprop="datePublished">2017-10-20 Friday</time>
 </a>
 
     </div>
@@ -549,14 +549,14 @@
 <h4 id="四、创建overlay网络"><a href="#四、创建overlay网络" class="headerlink" title="四、创建overlay网络"></a>四、创建overlay网络</h4><p>在其中一个节点主机上新建一个overlay网络，</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker network create -d overlay $&#123;networkname&#125;</span><br></pre></td></tr></table></figure>
 <p>这里我在de69上创建了名称为net1的网络：</p>
-<p><img src="/assets/images/posts/20171020/de69nwls.PNG" alt="de69nwls"></p>
-<p>其他节点主机上运行docker network ls 也可以看到并且使用该overlay网络。<br><img src="/assets/images/posts/20171020/de75nwls.PNG" alt="de75nwls"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20171020/de69nwls.PNG" alt="de69nwls"></p>
+<p>其他节点主机上运行docker network ls 也可以看到并且使用该overlay网络。<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20171020/de75nwls.PNG" alt="de75nwls"></p>
 <h4 id="五、使用overlay网络创建跨主机通信的容器"><a href="#五、使用overlay网络创建跨主机通信的容器" class="headerlink" title="五、使用overlay网络创建跨主机通信的容器"></a>五、使用overlay网络创建跨主机通信的容器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name $&#123;container_name&#125; --network net1 busybox</span><br></pre></td></tr></table></figure>
 <p>在de69创建容器bbox5，在de75 bbpx1 bbox4,在de79 bbox2 bbox3。</p>
 <p>在de69中ping测试：</p>
-<p><img src="/assets/images/posts/20171020/de69ping.PNG" alt="de69ping"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20171020/de69ping.PNG" alt="de69ping"></p>
 <p>在de75中ping测试：</p>
-<p><img src="/assets/images/posts/20171020/de75ping.PNG" alt="de75ping"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20171020/de75ping.PNG" alt="de75ping"></p>
 
       
     </div>
@@ -677,14 +677,14 @@ __release
 <p>Look at the current lock statistics:</p>
 <p>( line numbers not part of actual output, done for clarity in the explanation below )</p>
 <p><code># less /proc/lock_stat</code></p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="less"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock1.PNG" alt="less"></p>
 <p>This excerpt shows the first two lock class statistics. Line 01 shows the output version - each time the format changes this will be updated. Line 02-04 show the header with column descriptions. Lines 05-18 and 20-31 show the actual statistics. These statistics come in two parts; the actual stats separated by a short separator (line 08, 13) from the contention points.<br>Lines 09-12 show the first 4 recorded contention points (the code which tries to get the lock) and lines 14-17 show the first 4 recorded contended points (the lock holder). It is possible that the max<br>con-bounces point is missing in the statistics.</p>
 <p>The first lock (05-18) is a read/write lock, and shows two lines above the short separator. The contention points don’t match the column descriptors, they have two: contentions and [<ip>] symbol. The second set of contention<br>points are the points we’re contending with.</ip></p>
 <p>The integer part of the time values is in us.</p>
 <p>Dealing with nested locks, subclasses may appear:             </p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="lock"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock2.PNG" alt="lock"></p>
 <p>Line 48 shows statistics for the second subclass (/1) of &amp;rq-&gt;lock class (subclass starts from 0), since in this case, as line 50 suggests, double_rq_lock actually acquires a nested lock of two spinlocks.<br>View the top contending locks:<br><code># grep : /proc/lock_stat | head</code>  </p>
-<p><img src="/assets/images/posts/20170926/lock1.PNG" alt="head"></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20170926/lock3.PNG" alt="head"></p>
 <p>Clear the statistics:<br><code># echo 0 &gt; /proc/lock_stat</code>  </p>
 <h3 id="对某一进程或者应用进行lock-stat"><a href="#对某一进程或者应用进行lock-stat" class="headerlink" title="对某一进程或者应用进行lock stat"></a>对某一进程或者应用进行lock stat</h3><h5 id="关闭lock-stat"><a href="#关闭lock-stat" class="headerlink" title="关闭lock_stat"></a>关闭lock_stat</h5><p><code>echo 0 &gt; /proc/sys/kernel/lock_stat</code> </p>
 <h5 id="清空之前的统计数据"><a href="#清空之前的统计数据" class="headerlink" title="清空之前的统计数据"></a>清空之前的统计数据</h5><p><code>echo 0 &gt; /proc/lock_stat</code>  </p>
@@ -933,26 +933,24 @@ __release
         <h3 id="CRIU安装："><a href="#CRIU安装：" class="headerlink" title="CRIU安装："></a>CRIU安装：</h3><h5 id="获取CRIU的源代码"><a href="#获取CRIU的源代码" class="headerlink" title="获取CRIU的源代码"></a>获取CRIU的源代码</h5><p>git clone<a href="https://github.com/xemul/criu" target="_blank" rel="noopener">https://github.com/xemul/criu</a><br>或者<br>wget <a href="http://download.openvz.org/criu/criu-x.x.tar.bz2" target="_blank" rel="noopener">http://download.openvz.org/criu/criu-x.x.tar.bz2</a><br>tar -xvf criu-x.x.tar.bz2</p>
 <h5 id="安装编译依赖软件"><a href="#安装编译依赖软件" class="headerlink" title="安装编译依赖软件"></a>安装编译依赖软件</h5><p>yum install gcc make -y<br>yum install glibc-devel.i686 protobuf protobuf-c protobuf-c-devel protobuf-compiler protobuf-devel protobuf-python libaio-devel libcap-devel libnl3-devel -y<br>在CRIU代码根目录下，执行编译命令 make</p>
 <h5 id="安装依赖软件"><a href="#安装依赖软件" class="headerlink" title="安装依赖软件"></a>安装依赖软件</h5><p>yum install asciidoc xmlto -y<br>在CRIU代码根目录下，运行安装命令 make install</p>
-<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查</p>
-<p><img src="http://img.blog.csdn.net/20161108163757245" alt></p>
-<p>创建一个无限循环脚本文件。</p>
-<p><img src="http://img.blog.csdn.net/20161108163852230" alt></p>
+<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查, 创建一个无限循环脚本文件。</p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163852230.png" alt></p>
 <p>并运行脚本文件。</p>
 <p>[root@de69 ~]# chmod +x test.sh</p>
 <p>[root@de69 ~]# ./test.sh</p>
 <p>创建一个新的终端，获得test.sh的pid，“pgrep -f test.sh”</p>
 <p>[root@de69 ~]# criu dump -t $PID –images-dir chkpoint –shell-job</p>
-<p><img src="http://img.blog.csdn.net/20161108163926605" alt></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163926605.png" alt></p>
 <p>[root@de69 ~]# criu restore -t 23267 –images-dir chkpoint/ –shell-job<br> 运行命令之后test.sh恢复正常运行。</p>
 <h4 id="在使用CRIU对Docker容器进行操作时出现以下提示错误"><a href="#在使用CRIU对Docker容器进行操作时出现以下提示错误" class="headerlink" title="在使用CRIU对Docker容器进行操作时出现以下提示错误"></a>在使用CRIU对Docker容器进行操作时出现以下提示错误</h4><blockquote>
 <p>Error (criu/namespaces.c:403): Can’t dump nested pid namespace for 23025</p>
 <p>Error (criu/namespaces.c:607): Can’t make pidns id</p>
 <p>Error (criu/cr-dump.c:1625): Dumping FAILED.</p>
 </blockquote>
-<p><img src="http://img.blog.csdn.net/20161108163956808" alt></p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108163956808.png" alt></p>
 <p>参看pid=23025的应用</p>
-<p><img src="http://img.blog.csdn.net/20161108164007875" alt></p>
-<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/</p>
+<p><img src="https://github.com/yujinyu/MyDocuments/tree/master/BlogFiles/20161108/20161108164007875.png" alt></p>
+<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20161108/20161108164012230.png" alt></p>
 <p>原因是当前CRIU并不完善（如不支持seccomp、不支持外部终端、挂载的文件系统可读等），Docker容器对宿主机的应用（例如“/bin/bash”等）有依赖，而CRIU不能对非Docker容器进程树中的进程设置检查点，从而导致Checkpoint/Restore失败。</p>
 
       
@@ -994,7 +992,7 @@ __release
   
     <div class="article-meta">
       <a href="/201606/11/KVM虚拟机在线迁移环境配置/" class="article-date">
-      <time datetime="2016-06-11T12:18:36.000Z" itemprop="datePublished">2016-06-11 Saturday</time>
+      <time datetime="2016-06-11T08:18:36.000Z" itemprop="datePublished">2016-06-11 Saturday</time>
 </a>
 
     </div>

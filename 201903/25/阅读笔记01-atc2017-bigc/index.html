@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="小鱼游水">
 <meta property="og:description" content="基本信息会议：the 2017 USENIX Annual Technical Conference (USENIX ATC ‘17)文章原文：paper会议报告：ppt 动机与问题为了提高集群资源利用率，数据中心趋向于部署异构负载。但是不同负载特性和需求不同，一方面，对延迟敏感的任务需要尽可能快地被调度到目的节点；另一方面，长时间运行的任务应该在有资源空闲的时候占用集群空闲资源来提高资源利用率。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.yujinyu.site/assets/images/posts/20190325/bigc-arch.png">
-<meta property="og:updated_time" content="2019-03-27T17:11:52.000Z">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20190325/bigc-arch.png">
+<meta property="og:updated_time" content="2019-03-27T11:13:12.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization">
 <meta name="twitter:description" content="基本信息会议：the 2017 USENIX Annual Technical Conference (USENIX ATC ‘17)文章原文：paper会议报告：ppt 动机与问题为了提高集群资源利用率，数据中心趋向于部署异构负载。但是不同负载特性和需求不同，一方面，对延迟敏感的任务需要尽可能快地被调度到目的节点；另一方面，长时间运行的任务应该在有资源空闲的时候占用集群空闲资源来提高资源利用率。">
-<meta name="twitter:image" content="http://www.yujinyu.site/assets/images/posts/20190325/bigc-arch.png">
+<meta name="twitter:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20190325/bigc-arch.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -319,7 +319,7 @@
           
         <h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><p>会议：<a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/chen-wei" target="_blank" rel="noopener">the 2017 USENIX Annual Technical Conference (USENIX ATC ‘17)</a><br>文章原文：<a href="https://www.usenix.org/system/files/conference/atc17/atc17-chen_wei.pdf" target="_blank" rel="noopener">paper</a><br>会议报告：<a href="https://www.usenix.org/sites/default/files/conference/protected-files/atc_slides_chen_wei_0.pdf" target="_blank" rel="noopener">ppt</a></p>
 <h1 id="动机与问题"><a href="#动机与问题" class="headerlink" title="动机与问题"></a>动机与问题</h1><p>为了提高集群资源利用率，数据中心趋向于部署异构负载。但是不同负载特性和需求不同，一方面，对延迟敏感的任务需要尽可能快地被调度到目的节点；另一方面，长时间运行的任务应该在有资源空闲的时候占用集群空闲资源来提高资源利用率。问题的关键在于如何在保证短作业性能的同时，确保集群的资源利用率最大化。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>文章提出了一种基于容器的任务抢占方式。由于容器具有可以动态调整其运行资源的特性，通过使用容器作为任务的执行单元可以实现对任务资源的动态调整。<br>基于Hadoop YARN的架构如图所示。<br><img src="/assets/images/posts/20190325/bigc-arch.png" alt="bigc-arch"></p>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>文章提出了一种基于容器的任务抢占方式。由于容器具有可以动态调整其运行资源的特性，通过使用容器作为任务的执行单元可以实现对任务资源的动态调整。<br>基于Hadoop YARN的架构如图所示。<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20190325/bigc-arch.png" alt="bigc-arch"></p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1>
       
     </div>
@@ -331,7 +331,7 @@
         <p><span>本文标题:</span><a href="/201903/25/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
         <p><span>发布时间:</span>2019年03月25日 - 17时06分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 01时11分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 19时13分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/201903/25/阅读笔记01-atc2017-bigc/" title="阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization">http://www.yujinyu.site/201903/25/阅读笔记01-atc2017-bigc/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/201903/25/阅读笔记01-atc2017-bigc/　　作者: Jason Jinyu Yu" title></span>

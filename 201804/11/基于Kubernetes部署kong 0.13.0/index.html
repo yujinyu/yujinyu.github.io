@@ -17,12 +17,12 @@
 <meta property="og:site_name" content="小鱼游水">
 <meta property="og:description" content="（一） 一些准备工作1. Kubernetes部署完成并且支持DNS解析；2. 准备运行数据库（Postgres或者Cassandra）容器的必要的后端存储，这里我使用的heketi-glusterfs;3. 特别说明，本文kong应用部署在default namespace中（二）Kong部署过程1. 创建StorageClass，为运行数据库Postgres或者Cassandra做准备；123">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/yujinyu/MyPictureBed/blob/master/BlogImages/2018-4-11/clipboard.png">
-<meta property="og:updated_time" content="2019-03-27T16:07:32.000Z">
+<meta property="og:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20180411/clipboard.png">
+<meta property="og:updated_time" content="2019-03-27T11:13:58.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Kubernetes部署kong 0.13.0">
 <meta name="twitter:description" content="（一） 一些准备工作1. Kubernetes部署完成并且支持DNS解析；2. 准备运行数据库（Postgres或者Cassandra）容器的必要的后端存储，这里我使用的heketi-glusterfs;3. 特别说明，本文kong应用部署在default namespace中（二）Kong部署过程1. 创建StorageClass，为运行数据库Postgres或者Cassandra做准备；123">
-<meta name="twitter:image" content="https://github.com/yujinyu/MyPictureBed/blob/master/BlogImages/2018-4-11/clipboard.png">
+<meta name="twitter:image" content="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20180411/clipboard.png">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -277,7 +277,7 @@
   
     <div class="article-meta">
       <a href="/201804/11/基于Kubernetes部署kong 0.13.0/" class="article-date">
-      <time datetime="2018-04-11T12:38:05.000Z" itemprop="datePublished">2018-04-11 Wednesday</time>
+      <time datetime="2018-04-11T09:04:25.000Z" itemprop="datePublished">2018-04-11 Wednesday</time>
 </a>
 
     </div>
@@ -339,7 +339,7 @@
 <h3 id="2-在kong中添加api"><a href="#2-在kong中添加api" class="headerlink" title="2. 在kong中添加api"></a>2. 在kong中添加api</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X POST --url http://<span class="variable">$&#123;kubernetes_master_ip&#125;</span>:<span class="variable">$&#123;kong_admin_nodeport&#125;</span>/apis/ --data <span class="string">'name=nginx-example-api'</span>   --data <span class="string">'hosts=nginx-example.com'</span>   --data <span class="string">'upstream_url=http://my-nginx'</span></span><br></pre></td></tr></table></figure>
 <p>说明：如果部署Nginx应用和Kong不在同一namespace，则需修改命令中“<br>upstream_url”的值，加入kong在defaul而Nginx在test命名空间，那么upstream_url则应修改为“upstream_url=<a href="http://my_nginx.test.svc.cluster.local&quot;（cluster-domain默认为cluster.local）。" target="_blank" rel="noopener">http://my_nginx.test.svc.cluster.local&quot;（cluster-domain默认为cluster.local）。</a></p>
 <h3 id="3-使用api访问后端Nginx服务"><a href="#3-使用api访问后端Nginx服务" class="headerlink" title="3. 使用api访问后端Nginx服务"></a>3. 使用api访问后端Nginx服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -i -X GET  --url http://<span class="variable">$&#123;kubernetes_master_ip&#125;</span>:$(kong_proxy_nodeport&#125;/  --header <span class="string">'Host: nginx-example.com'</span></span><br></pre></td></tr></table></figure>
-<p>结果如图所示，<br><img src="https://github.com/yujinyu/MyPictureBed/blob/master/BlogImages/2018-4-11/clipboard.png" alt="enter description here"></p>
+<p>结果如图所示，<br><img src="https://github.com/yujinyu/MyDocuments/blob/master/BlogFiles/20180411/clipboard.png" alt="enter description here"></p>
 <h1 id="（四）-到此已成功运行kong。"><a href="#（四）-到此已成功运行kong。" class="headerlink" title="（四） 到此已成功运行kong。"></a>（四） 到此已成功运行kong。</h1><hr>
 <p>参考资料：<br>[1]. <a href="https://github.com/Kong/kong-dist-kubernetes" target="_blank" rel="noopener">https://github.com/Kong/kong-dist-kubernetes</a><br>[2]. <a href="https://getkong.org/install/kubernetes/" target="_blank" rel="noopener">https://getkong.org/install/kubernetes/</a><br>[3]. <a href="https://kubernetes.io/docs/concepts/storage/storage-classes/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/storage/storage-classes/</a><br>[4]. <a href="https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/</a><br>[5]. <a href="https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes" target="_blank" rel="noopener">https://github.com/IBM/Scalable-Cassandra-deployment-on-Kubernetes</a><br>[6]. <a href="https://getkong.org/docs/0.13.x/getting-started/configuring-a-service/" target="_blank" rel="noopener">https://getkong.org/docs/0.13.x/getting-started/configuring-a-service/</a>     </p>
 
@@ -352,8 +352,8 @@
     <div class="copyright">
         <p><span>本文标题:</span><a href="/201804/11/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
-        <p><span>发布时间:</span>2018年04月11日 - 20时38分</p>
-        <p><span>最后更新:</span>2019年03月28日 - 00时07分</p>
+        <p><span>发布时间:</span>2018年04月11日 - 17时04分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 19时13分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/201804/11/基于Kubernetes部署kong 0.13.0/" title="基于Kubernetes部署kong 0.13.0">http://www.yujinyu.site/201804/11/基于Kubernetes部署kong 0.13.0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/201804/11/基于Kubernetes部署kong 0.13.0/　　作者: Jason Jinyu Yu" title></span>
