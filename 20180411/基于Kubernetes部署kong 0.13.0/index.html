@@ -10,7 +10,7 @@
   <title>基于Kubernetes部署kong 0.13.0 | 小鱼游水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="（一） 一些准备工作1. Kubernetes部署完成并且支持DNS解析；2. 准备运行数据库（Postgres或者Cassandra）容器的必要的后端存储，这里我使用的heketi-glusterfs;3. 特别说明，本文kong应用部署在default namespace中（二）Kong部署过程1. 创建StorageClass，为运行数据库Postgres或者Cassandra做准备；123">
-<meta name="keywords" content="Gateway">
+<meta name="keywords" content="Kubernetes,API Gateway,Kong">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Kubernetes部署kong 0.13.0">
 <meta property="og:url" content="http://www.yujinyu.site/20180411/基于Kubernetes部署kong 0.13.0/index.html">
@@ -18,11 +18,13 @@
 <meta property="og:description" content="（一） 一些准备工作1. Kubernetes部署完成并且支持DNS解析；2. 准备运行数据库（Postgres或者Cassandra）容器的必要的后端存储，这里我使用的heketi-glusterfs;3. 特别说明，本文kong应用部署在default namespace中（二）Kong部署过程1. 创建StorageClass，为运行数据库Postgres或者Cassandra做准备；123">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.yujinyu.site/20180411/基于Kubernetes部署kong%200.13.0/clipboard.png">
-<meta property="og:updated_time" content="2019-03-27T11:57:11.004Z">
+<meta property="og:updated_time" content="2019-03-27T12:19:47.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Kubernetes部署kong 0.13.0">
 <meta name="twitter:description" content="（一） 一些准备工作1. Kubernetes部署完成并且支持DNS解析；2. 准备运行数据库（Postgres或者Cassandra）容器的必要的后端存储，这里我使用的heketi-glusterfs;3. 特别说明，本文kong应用部署在default namespace中（二）Kong部署过程1. 创建StorageClass，为运行数据库Postgres或者Cassandra做准备；123">
 <meta name="twitter:image" content="http://www.yujinyu.site/20180411/基于Kubernetes部署kong%200.13.0/clipboard.png">
+  
+    <link rel="alternative" href="/atom.xml" title="小鱼游水" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/favicon.png">
@@ -70,6 +72,8 @@
         <hgroup>
           <h1 class="header-author"><a href="/">Jason Jinyu Yu</a></h1>
         </hgroup>
+        
+        <p class="header-subtitle">我是一条酸菜鱼,又酸又菜又多余;~ 我是一条土豆丝，又土又逗又屌丝.</p>
         
         
             <form>
@@ -141,11 +145,6 @@
                         </div>
                         
                         
-                        <div class="icon-wrap icon-me hide" data-idx="3">
-                            <div class="user"></div>
-                            <div class="shoulder"></div>
-                        </div>
-                        
                     </div>
                 </div>
                 <div class="tips-box hide">
@@ -156,8 +155,6 @@
                         
                         <li>友情链接</li>
                         
-                        
-                        <li>关于我</li>
                         
                     </ul>
                 </div>
@@ -177,7 +174,7 @@
                         
                             <li><a href="/tags/">分类阅读</a></li>
                         
-                            <li><a href="/about/">关于我</a></li>
+                            <li><a href="/about/">AboutMe</a></li>
                         
                         </ul>
                     </nav>
@@ -198,7 +195,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/CRIU/" style="font-size: 10px;">CRIU</a> <a href="/tags/Gateway/" style="font-size: 10px;">Gateway</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Live-Migration/" style="font-size: 10px;">Live_Migration</a> <a href="/tags/Overlay-Network/" style="font-size: 10px;">Overlay_Network</a> <a href="/tags/ShadowsocksR/" style="font-size: 10px;">ShadowsocksR</a> <a href="/tags/lock-stat/" style="font-size: 10px;">lock_stat</a> <a href="/tags/资源调度/" style="font-size: 10px;">资源调度</a>
+                        <a href="/tags/API-Gateway/" style="font-size: 10px;">API Gateway</a> <a href="/tags/CRIU/" style="font-size: 10px;">CRIU</a> <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/Hadoop-YARN/" style="font-size: 10px;">Hadoop YARN</a> <a href="/tags/KVM/" style="font-size: 10px;">KVM</a> <a href="/tags/Kong/" style="font-size: 10px;">Kong</a> <a href="/tags/Kubernetes/" style="font-size: 15px;">Kubernetes</a> <a href="/tags/Live-Migration/" style="font-size: 10px;">Live Migration</a> <a href="/tags/Overlay-Network/" style="font-size: 10px;">Overlay Network</a> <a href="/tags/Resource-Scheduling/" style="font-size: 10px;">Resource Scheduling</a> <a href="/tags/Shadowsocks/" style="font-size: 10px;">Shadowsocks</a> <a href="/tags/ShadowsocksR/" style="font-size: 10px;">ShadowsocksR</a> <a href="/tags/lock-stat/" style="font-size: 10px;">lock_stat</a>
                     </div>
                 </section>
                 
@@ -211,12 +208,6 @@
                     </div>
                 </section>
                 
-                
-                
-                <section class="switch-part switch-part4">
-                
-                    <div id="js-aboutme">true</div>
-                </section>
                 
             </div>
         </div>
@@ -241,6 +232,8 @@
               <h1 class="header-author"><a href="/" title="回到主页">Jason Jinyu Yu</a></h1>
             </hgroup>
             
+            <p class="header-subtitle">我是一条酸菜鱼,又酸又菜又多余;~ 我是一条土豆丝，又土又逗又屌丝.</p>
+            
             <nav class="header-menu">
                 <ul>
                 
@@ -252,7 +245,7 @@
                 
                     <li><a href="/tags/">分类阅读</a></li>
                 
-                    <li><a href="/about/">关于我</a></li>
+                    <li><a href="/about/">AboutMe</a></li>
                 
                 <div class="clearfix"></div>
                 </ul>
@@ -307,7 +300,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gateway/">Gateway</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/API-Gateway/">API Gateway</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kong/">Kong</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kubernetes/">Kubernetes</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -353,7 +346,7 @@
         <p><span>本文标题:</span><a href="/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
         <p><span>发布时间:</span>2018年04月11日 - 17时04分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 19时57分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 20时19分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/20180411/基于Kubernetes部署kong 0.13.0/" title="基于Kubernetes部署kong 0.13.0">http://www.yujinyu.site/20180411/基于Kubernetes部署kong 0.13.0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/20180411/基于Kubernetes部署kong 0.13.0/　　作者: Jason Jinyu Yu" title></span>
@@ -428,21 +421,6 @@
     }
 </script>
 
-    <style>
-        .toc {
-            white-space: nowrap;
-            overflow-x: hidden;
-        }
-    </style>
-    <script>
-        $(document).ready(function() {
-            $(".toc li a").mouseover(function() {
-                var title = $(this).attr('href');
-                $(this).attr("title", title);
-            });
-        })
-    </script>
-
 
 
 
@@ -516,23 +494,20 @@
                 &copy; 2019 Jason Jinyu Yu
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+                <a href="http://hexo.io/" target="_blank">Hexo-Based &nbsp;&nbsp;</a>Blog.
             </div>
         </div>
         
             <div class="visit">
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
+                    <span id="busuanzi_container_site_uv">
                         <span id="site-visit">极客到访数: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
                 
-                    <span>, </span>
-                
-                
-                    <span id="busuanzi_container_page_pv" style="display:none">
+                    <span id="busuanzi_container_page_pv">
                         <span id="page-visit">本页阅读量: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
