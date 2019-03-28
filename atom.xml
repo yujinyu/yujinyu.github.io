@@ -93,9 +93,9 @@
       <category term="搞机记录" scheme="http://www.yujinyu.site/categories/%E6%90%9E%E6%9C%BA%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="API Gateway" scheme="http://www.yujinyu.site/tags/API-Gateway/"/>
-    
       <category term="Kubernetes" scheme="http://www.yujinyu.site/tags/Kubernetes/"/>
+    
+      <category term="API Gateway" scheme="http://www.yujinyu.site/tags/API-Gateway/"/>
     
       <category term="Kong" scheme="http://www.yujinyu.site/tags/Kong/"/>
     
@@ -175,9 +175,9 @@
       <category term="搞机记录" scheme="http://www.yujinyu.site/categories/%E6%90%9E%E6%9C%BA%E8%AE%B0%E5%BD%95/"/>
     
     
-      <category term="Kubernetes" scheme="http://www.yujinyu.site/tags/Kubernetes/"/>
-    
       <category term="Docker" scheme="http://www.yujinyu.site/tags/Docker/"/>
+    
+      <category term="Kubernetes" scheme="http://www.yujinyu.site/tags/Kubernetes/"/>
     
   </entry>
   
