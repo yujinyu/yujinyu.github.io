@@ -7,20 +7,20 @@
   
   
   
-  <title>使用ss或者ssr实现Linux系统全局FQ | 小鱼游水</title>
+  <title>KVM虚拟机在线迁移环境配置 | 小鱼游水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用方法：下载https://github.com/yujinyu/installSStproxyEasily.git 1.在conf.py中选择使用代理方式是ss还是ssr，并配置账号、密码以及其他参数； 2.运行install_ss-redir.py安装软件并进行环境配置； 3.安装配置完成后，运行命令”ss-tproxy start”开始使用。 参考资料：[1]. https://www.z">
-<meta name="keywords" content="ShadowsocksR,Shadowsocks">
+  <meta name="description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
+<meta name="keywords" content="KVM,Live Migration">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用ss或者ssr实现Linux系统全局FQ">
-<meta property="og:url" content="http://www.yujinyu.site/20180615/使用ss或者ssr实现Linux全局FQ/index.html">
+<meta property="og:title" content="KVM虚拟机在线迁移环境配置">
+<meta property="og:url" content="http://www.yujinyu.site/posts/20160611/KVM虚拟机在线迁移环境配置/index.html">
 <meta property="og:site_name" content="小鱼游水">
-<meta property="og:description" content="使用方法：下载https://github.com/yujinyu/installSStproxyEasily.git 1.在conf.py中选择使用代理方式是ss还是ssr，并配置账号、密码以及其他参数； 2.运行install_ss-redir.py安装软件并进行环境配置； 3.安装配置完成后，运行命令”ss-tproxy start”开始使用。 参考资料：[1]. https://www.z">
+<meta property="og:description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T12:18:12.989Z">
+<meta property="og:updated_time" content="2019-03-27T04:19:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用ss或者ssr实现Linux系统全局FQ">
-<meta name="twitter:description" content="使用方法：下载https://github.com/yujinyu/installSStproxyEasily.git 1.在conf.py中选择使用代理方式是ss还是ssr，并配置账号、密码以及其他参数； 2.运行install_ss-redir.py安装软件并进行环境配置； 3.安装配置完成后，运行命令”ss-tproxy start”开始使用。 参考资料：[1]. https://www.z">
+<meta name="twitter:title" content="KVM虚拟机在线迁移环境配置">
+<meta name="twitter:description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
   
     <link rel="alternative" href="/atom.xml" title="小鱼游水" type="application/atom+xml">
   
@@ -264,11 +264,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-使用ss或者ssr实现Linux全局FQ" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-KVM虚拟机在线迁移环境配置" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/20180615/使用ss或者ssr实现Linux全局FQ/" class="article-date">
-      <time datetime="2018-06-15T09:04:05.000Z" itemprop="datePublished">2018-06-15 Friday</time>
+      <a href="/posts/20160611/KVM虚拟机在线迁移环境配置/" class="article-date">
+      <time datetime="2016-06-11T08:18:36.000Z" itemprop="datePublished">2016-06-11 Saturday</time>
 </a>
 
     </div>
@@ -282,7 +282,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      使用ss或者ssr实现Linux系统全局FQ
+      KVM虚拟机在线迁移环境配置
     </h1>
   
 
@@ -298,7 +298,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shadowsocks/">Shadowsocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ShadowsocksR/">ShadowsocksR</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KVM/">KVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Live-Migration/">Live Migration</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,14 +308,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h1><p>下载<a href="https://github.com/yujinyu/installSStproxyEasily.git" target="_blank" rel="noopener">https://github.com/yujinyu/installSStproxyEasily.git</a></p>
-<p>1.在conf.py中选择使用代理方式是ss还是ssr，并配置账号、密码以及其他参数；</p>
-<p>2.运行install_ss-redir.py安装软件并进行环境配置；</p>
-<p>3.安装配置完成后，运行命令”ss-tproxy start”开始使用。</p>
-<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><p>[1]. <a href="https://www.zfl9.com/ss-redir.html" target="_blank" rel="noopener">https://www.zfl9.com/ss-redir.html</a></p>
-<p>[2]. <a href="https://github.com/shadowsocksr-backup/shadowsocksr-libev" target="_blank" rel="noopener">https://github.com/shadowsocksr-backup/shadowsocksr-libev</a></p>
-<p>[3]. <a href="https://github.com/shadowsocks/shadowsocks-libev.git" target="_blank" rel="noopener">https://github.com/shadowsocks/shadowsocks-libev.git</a></p>
-<p>[4]. <a href="https://github.com/zfl9/ss-tproxy.git" target="_blank" rel="noopener">https://github.com/zfl9/ss-tproxy.git</a></p>
+        <h2 id="简要配置步骤："><a href="#简要配置步骤：" class="headerlink" title="简要配置步骤："></a>简要配置步骤：</h2><ol>
+<li>在两台服务器上安装CentOS7的系统。</li>
+<li>编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。</li>
+<li><p>实现两台主机无密码ssh登录，</p>
+<blockquote>
+<p>1)运行：ssh-keygen -t rsa ;<br>2)然后拍两下回车（均选择默认） ;<br>3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;<br>4)再输入163机器上的root密码。</p>
+</blockquote>
+</li>
+<li><p>关闭源与目标主机的防火墙（否则出现错误“Unable to migrate guest: unable to connect to<br>server at ‘target_addr:49152’: No route to host”）。</p>
+</li>
+<li>确保两台主机libvirtd都在运行。</li>
+<li>源主机端打开virt-manager，Add Connection，添加对目标主机的链接。</li>
+<li>在源主机创建虚拟机，并在目标主机相同的路径创建大于等于源虚拟机大小，相同格式相同名称的镜像文件（否则出现error：Unable to<br>migrate guest: Cannot access storage file ‘/home/images/vm01.qcow2’<br>(as uid:107, gid:107): No such file or directory）。</li>
+<li>可以使用virt-manage进行libvirtd、tcp在线迁移，如命令：virsh migrate –live –copy-storage-all vmname qemu+ssh(or tcp)://dest_ip/system</li>
+</ol>
+<h2 id="可能出现的错误或者问题及其解决方法："><a href="#可能出现的错误或者问题及其解决方法：" class="headerlink" title="可能出现的错误或者问题及其解决方法："></a>可能出现的错误或者问题及其解决方法：</h2><p>执行迁移命令的时候<br>1、出现错误：“error: internal error: unable to execute QEMU command ‘migrate’: this feature or command is not currently supported”。</p>
+<p>通过查询(Re: [libvirt-users] Libvirt Live Migration  <a href="https://www.redhat.com/archives/libvirt-users/2014-December/msg00008.html)说是qemu-kvm版本的问题，使用的是qemu-kvm-1.5.3。网上提出问题的人说他使用qemu-kvm-1.0的可以。解决方法：推荐使用qemu-kvm-rhev" target="_blank" rel="noopener">https://www.redhat.com/archives/libvirt-users/2014-December/msg00008.html)说是qemu-kvm版本的问题，使用的是qemu-kvm-1.5.3。网上提出问题的人说他使用qemu-kvm-1.0的可以。解决方法：推荐使用qemu-kvm-rhev</a> 代替 qemu-kvm。</p>
+<p>2、 出现错误：“Unable to migrate guest: internal error: process exited while connecting to monitor: Could not access KVM kernel module: Permission denied failed to initialize KVM: Permission denied“</p>
+<p>解决方法：修改/etc/libvirt/qemu.conf，使user=root，group=root，dynamic_ownership = 0然后重启服务libvirtd。</p>
+<p>3、出现错误：“Could not access KVM kernel module: Permission denied failed to initialize KVM :  Permission denied</p>
+<p>解决方法：rmmod kvm_intel; rmmod kvm; modprobe kvm; modprobe kvm_intel</p>
+<p>4、出现错误：“Error starting domain: internal error: process exited while connecting to monitor: qemu-system-x86_64:  …… Can’t use ‘raw’ as a block driver for the protocol level”</p>
+<p>解决方法： 删除CD-ROM模块。</p>
 
       
     </div>
@@ -324,13 +339,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></p>
+        <p><span>本文标题:</span><a href="/posts/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
-        <p><span>发布时间:</span>2018年06月15日 - 17时04分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 20时18分</p>
+        <p><span>发布时间:</span>2016年06月11日 - 16时18分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 12时19分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/20180615/使用ss或者ssr实现Linux全局FQ/" title="使用ss或者ssr实现Linux系统全局FQ">http://www.yujinyu.site/20180615/使用ss或者ssr实现Linux全局FQ/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/20180615/使用ss或者ssr实现Linux全局FQ/　　作者: Jason Jinyu Yu" title></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/20160611/KVM虚拟机在线迁移环境配置/" title="KVM虚拟机在线迁移环境配置">http://www.yujinyu.site/posts/20160611/KVM虚拟机在线迁移环境配置/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/posts/20160611/KVM虚拟机在线迁移环境配置/　　作者: Jason Jinyu Yu" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -341,20 +356,15 @@
 
 <nav id="article-nav">
   
-    <a href="/20190325/阅读笔记01-atc2017-bigc/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/20161108/CRIU的安装与使用/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization
+          CRIU的安装与使用
         
       </div>
     </a>
   
-  
-    <a href="/20180411/基于Kubernetes部署kong 0.13.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">基于Kubernetes部署kong 0.13.0</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
   
 </nav>
 
@@ -364,7 +374,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法："><span class="toc-number">1.</span> <span class="toc-text">使用方法：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料："><span class="toc-number">2.</span> <span class="toc-text">参考资料：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简要配置步骤："><span class="toc-number">1.</span> <span class="toc-text">简要配置步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可能出现的错误或者问题及其解决方法："><span class="toc-number">2.</span> <span class="toc-text">可能出现的错误或者问题及其解决方法：</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -425,18 +435,16 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/20190325/阅读笔记01-atc2017-bigc/" title="上一篇: 阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization">
+            <a href="/posts/20161108/CRIU的安装与使用/" title="上一篇: CRIU的安装与使用">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/20180411/基于Kubernetes部署kong 0.13.0/" title="下一篇: 基于Kubernetes部署kong 0.13.0">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
@@ -508,7 +516,7 @@
 
     <script>
         $(document).ready(function() {
-            var backgroundnum = 2;
+            var backgroundnum = 16;
             var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
             $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
             $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});

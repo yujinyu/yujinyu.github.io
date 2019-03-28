@@ -7,20 +7,26 @@
   
   
   
-  <title>KVM虚拟机在线迁移环境配置 | 小鱼游水</title>
+  <title>CRIU的安装与使用 | 小鱼游水</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
-<meta name="keywords" content="KVM,Live Migration">
+  <meta name="description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
+<meta name="keywords" content="CRIU">
 <meta property="og:type" content="article">
-<meta property="og:title" content="KVM虚拟机在线迁移环境配置">
-<meta property="og:url" content="http://www.yujinyu.site/20160611/KVM虚拟机在线迁移环境配置/index.html">
+<meta property="og:title" content="CRIU的安装与使用">
+<meta property="og:url" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/index.html">
 <meta property="og:site_name" content="小鱼游水">
-<meta property="og:description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
+<meta property="og:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T12:19:57.980Z">
+<meta property="og:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108163852230.png">
+<meta property="og:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108163926605.png">
+<meta property="og:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108163956808.png">
+<meta property="og:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108164007875.png">
+<meta property="og:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108164012230.png">
+<meta property="og:updated_time" content="2019-03-27T03:59:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KVM虚拟机在线迁移环境配置">
-<meta name="twitter:description" content="简要配置步骤： 在两台服务器上安装CentOS7的系统。 编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。 实现两台主机无密码ssh登录，  1)运行：ssh-keygen -t rsa ;2)然后拍两下回车（均选择默认） ;3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;4)再输入163机器上的root密码。">
+<meta name="twitter:title" content="CRIU的安装与使用">
+<meta name="twitter:description" content="CRIU安装：获取CRIU的源代码git clonehttps://github.com/xemul/criu或者wget http://download.openvz.org/criu/criu-x.x.tar.bz2tar -xvf criu-x.x.tar.bz2 安装编译依赖软件yum install gcc make -yyum install glibc-devel.i686 prot">
+<meta name="twitter:image" content="http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/20161108163852230.png">
   
     <link rel="alternative" href="/atom.xml" title="小鱼游水" type="application/atom+xml">
   
@@ -264,11 +270,11 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-KVM虚拟机在线迁移环境配置" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CRIU的安装与使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/20160611/KVM虚拟机在线迁移环境配置/" class="article-date">
-      <time datetime="2016-06-11T08:18:36.000Z" itemprop="datePublished">2016-06-11 Saturday</time>
+      <a href="/posts/20161108/CRIU的安装与使用/" class="article-date">
+      <time datetime="2016-11-08T10:34:51.000Z" itemprop="datePublished">2016-11-08 Tuesday</time>
 </a>
 
     </div>
@@ -282,7 +288,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      KVM虚拟机在线迁移环境配置
+      CRIU的安装与使用
     </h1>
   
 
@@ -298,7 +304,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/KVM/">KVM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Live-Migration/">Live Migration</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CRIU/">CRIU</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -308,29 +314,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="简要配置步骤："><a href="#简要配置步骤：" class="headerlink" title="简要配置步骤："></a>简要配置步骤：</h2><ol>
-<li>在两台服务器上安装CentOS7的系统。</li>
-<li>编译使用4.3.0版本内核，注意配置KVM以及虚拟设备驱动等模块。</li>
-<li><p>实现两台主机无密码ssh登录，</p>
-<blockquote>
-<p>1)运行：ssh-keygen -t rsa ;<br>2)然后拍两下回车（均选择默认） ;<br>3)运行：ssh-copy-id -i /root/.ssh/id_rsa.pub root@target_host;<br>4)再输入163机器上的root密码。</p>
+        <h3 id="CRIU安装："><a href="#CRIU安装：" class="headerlink" title="CRIU安装："></a>CRIU安装：</h3><h5 id="获取CRIU的源代码"><a href="#获取CRIU的源代码" class="headerlink" title="获取CRIU的源代码"></a>获取CRIU的源代码</h5><p>git clone<a href="https://github.com/xemul/criu" target="_blank" rel="noopener">https://github.com/xemul/criu</a><br>或者<br>wget <a href="http://download.openvz.org/criu/criu-x.x.tar.bz2" target="_blank" rel="noopener">http://download.openvz.org/criu/criu-x.x.tar.bz2</a><br>tar -xvf criu-x.x.tar.bz2</p>
+<h5 id="安装编译依赖软件"><a href="#安装编译依赖软件" class="headerlink" title="安装编译依赖软件"></a>安装编译依赖软件</h5><p>yum install gcc make -y<br>yum install glibc-devel.i686 protobuf protobuf-c protobuf-c-devel protobuf-compiler protobuf-devel protobuf-python libaio-devel libcap-devel libnl3-devel -y<br>在CRIU代码根目录下，执行编译命令 make</p>
+<h5 id="安装依赖软件"><a href="#安装依赖软件" class="headerlink" title="安装依赖软件"></a>安装依赖软件</h5><p>yum install asciidoc xmlto -y<br>在CRIU代码根目录下，运行安装命令 make install</p>
+<h3 id="CRIU使用："><a href="#CRIU使用：" class="headerlink" title="CRIU使用："></a>CRIU使用：</h3><p>命令格式：criu dump -D chkpoint -t pid<br>CRIU环境检查, 创建一个无限循环脚本文件。</p>
+<p><img src="/posts/20161108/CRIU的安装与使用/20161108163852230.png" alt></p>
+<p>并运行脚本文件。</p>
+<p>[root@de69 ~]# chmod +x test.sh</p>
+<p>[root@de69 ~]# ./test.sh</p>
+<p>创建一个新的终端，获得test.sh的pid，“pgrep -f test.sh”</p>
+<p>[root@de69 ~]# criu dump -t $PID –images-dir chkpoint –shell-job</p>
+<p><img src="/posts/20161108/CRIU的安装与使用/20161108163926605.png" alt></p>
+<p>[root@de69 ~]# criu restore -t 23267 –images-dir chkpoint/ –shell-job<br> 运行命令之后test.sh恢复正常运行。</p>
+<h4 id="在使用CRIU对Docker容器进行操作时出现以下提示错误"><a href="#在使用CRIU对Docker容器进行操作时出现以下提示错误" class="headerlink" title="在使用CRIU对Docker容器进行操作时出现以下提示错误"></a>在使用CRIU对Docker容器进行操作时出现以下提示错误</h4><blockquote>
+<p>Error (criu/namespaces.c:403): Can’t dump nested pid namespace for 23025</p>
+<p>Error (criu/namespaces.c:607): Can’t make pidns id</p>
+<p>Error (criu/cr-dump.c:1625): Dumping FAILED.</p>
 </blockquote>
-</li>
-<li><p>关闭源与目标主机的防火墙（否则出现错误“Unable to migrate guest: unable to connect to<br>server at ‘target_addr:49152’: No route to host”）。</p>
-</li>
-<li>确保两台主机libvirtd都在运行。</li>
-<li>源主机端打开virt-manager，Add Connection，添加对目标主机的链接。</li>
-<li>在源主机创建虚拟机，并在目标主机相同的路径创建大于等于源虚拟机大小，相同格式相同名称的镜像文件（否则出现error：Unable to<br>migrate guest: Cannot access storage file ‘/home/images/vm01.qcow2’<br>(as uid:107, gid:107): No such file or directory）。</li>
-<li>可以使用virt-manage进行libvirtd、tcp在线迁移，如命令：virsh migrate –live –copy-storage-all vmname qemu+ssh(or tcp)://dest_ip/system</li>
-</ol>
-<h2 id="可能出现的错误或者问题及其解决方法："><a href="#可能出现的错误或者问题及其解决方法：" class="headerlink" title="可能出现的错误或者问题及其解决方法："></a>可能出现的错误或者问题及其解决方法：</h2><p>执行迁移命令的时候<br>1、出现错误：“error: internal error: unable to execute QEMU command ‘migrate’: this feature or command is not currently supported”。</p>
-<p>通过查询(Re: [libvirt-users] Libvirt Live Migration  <a href="https://www.redhat.com/archives/libvirt-users/2014-December/msg00008.html)说是qemu-kvm版本的问题，使用的是qemu-kvm-1.5.3。网上提出问题的人说他使用qemu-kvm-1.0的可以。解决方法：推荐使用qemu-kvm-rhev" target="_blank" rel="noopener">https://www.redhat.com/archives/libvirt-users/2014-December/msg00008.html)说是qemu-kvm版本的问题，使用的是qemu-kvm-1.5.3。网上提出问题的人说他使用qemu-kvm-1.0的可以。解决方法：推荐使用qemu-kvm-rhev</a> 代替 qemu-kvm。</p>
-<p>2、 出现错误：“Unable to migrate guest: internal error: process exited while connecting to monitor: Could not access KVM kernel module: Permission denied failed to initialize KVM: Permission denied“</p>
-<p>解决方法：修改/etc/libvirt/qemu.conf，使user=root，group=root，dynamic_ownership = 0然后重启服务libvirtd。</p>
-<p>3、出现错误：“Could not access KVM kernel module: Permission denied failed to initialize KVM :  Permission denied</p>
-<p>解决方法：rmmod kvm_intel; rmmod kvm; modprobe kvm; modprobe kvm_intel</p>
-<p>4、出现错误：“Error starting domain: internal error: process exited while connecting to monitor: qemu-system-x86_64:  …… Can’t use ‘raw’ as a block driver for the protocol level”</p>
-<p>解决方法： 删除CD-ROM模块。</p>
+<p><img src="/posts/20161108/CRIU的安装与使用/20161108163956808.png" alt></p>
+<p>参看pid=23025的应用</p>
+<p><img src="/posts/20161108/CRIU的安装与使用/20161108164007875.png" alt></p>
+<p>[root@de69 ~]# criu dump -t 23025 –images-dir /tmp/doc01/<br><img src="/posts/20161108/CRIU的安装与使用/20161108164012230.png" alt></p>
+<p>原因是当前CRIU并不完善（如不支持seccomp、不支持外部终端、挂载的文件系统可读等），Docker容器对宿主机的应用（例如“/bin/bash”等）有依赖，而CRIU不能对非Docker容器进程树中的进程设置检查点，从而导致Checkpoint/Restore失败。</p>
 
       
     </div>
@@ -339,13 +344,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></p>
+        <p><span>本文标题:</span><a href="/posts/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
-        <p><span>发布时间:</span>2016年06月11日 - 16时18分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 20时19分</p>
+        <p><span>发布时间:</span>2016年11月08日 - 18时34分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 11时59分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/20160611/KVM虚拟机在线迁移环境配置/" title="KVM虚拟机在线迁移环境配置">http://www.yujinyu.site/20160611/KVM虚拟机在线迁移环境配置/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/20160611/KVM虚拟机在线迁移环境配置/　　作者: Jason Jinyu Yu" title></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/20161108/CRIU的安装与使用/" title="CRIU的安装与使用">http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/posts/20161108/CRIU的安装与使用/　　作者: Jason Jinyu Yu" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -356,15 +361,20 @@
 
 <nav id="article-nav">
   
-    <a href="/20161108/CRIU的安装与使用/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          CRIU的安装与使用
+          使用Kubernetes1.4.6源码搭建容器集群
         
       </div>
     </a>
   
+  
+    <a href="/posts/20160611/KVM虚拟机在线迁移环境配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">KVM虚拟机在线迁移环境配置</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -374,7 +384,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简要配置步骤："><span class="toc-number">1.</span> <span class="toc-text">简要配置步骤：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可能出现的错误或者问题及其解决方法："><span class="toc-number">2.</span> <span class="toc-text">可能出现的错误或者问题及其解决方法：</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CRIU安装："><span class="toc-number">1.</span> <span class="toc-text">CRIU安装：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#获取CRIU的源代码"><span class="toc-number">1.0.1.</span> <span class="toc-text">获取CRIU的源代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装编译依赖软件"><span class="toc-number">1.0.2.</span> <span class="toc-text">安装编译依赖软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装依赖软件"><span class="toc-number">1.0.3.</span> <span class="toc-text">安装依赖软件</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#CRIU使用："><span class="toc-number">2.</span> <span class="toc-text">CRIU使用：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在使用CRIU对Docker容器进行操作时出现以下提示错误"><span class="toc-number">2.1.</span> <span class="toc-text">在使用CRIU对Docker容器进行操作时出现以下提示错误</span></a></li></ol></li>
 </div>
 <style>
     .left-col .switch-btn {
@@ -435,16 +445,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/20161108/CRIU的安装与使用/" title="上一篇: CRIU的安装与使用">
+            <a href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/" title="上一篇: 使用Kubernetes1.4.6源码搭建容器集群">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/posts/20160611/KVM虚拟机在线迁移环境配置/" title="下一篇: KVM虚拟机在线迁移环境配置">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
@@ -516,7 +528,7 @@
 
     <script>
         $(document).ready(function() {
-            var backgroundnum = 2;
+            var backgroundnum = 16;
             var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
             $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
             $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});

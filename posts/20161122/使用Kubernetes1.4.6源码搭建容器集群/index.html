@@ -13,11 +13,11 @@
 <meta name="keywords" content="Kubernetes,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Kubernetes1.4.6源码搭建容器集群">
-<meta property="og:url" content="http://www.yujinyu.site/20161122/使用Kubernetes1.4.6源码搭建容器集群/index.html">
+<meta property="og:url" content="http://www.yujinyu.site/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/index.html">
 <meta property="og:site_name" content="小鱼游水">
 <meta property="og:description" content="一、相关准备工作1.1、准备工作 准备至少两台已安装好CentOS7.2操作系统的物理机或者虚拟机（本文配置时使用的是三台KVM虚拟机）； 设置hostname命令：hostnamectl set-hostname k8s-mst      角色 ip hostname     Master 192.168.3.87 k8s-mst   Node 192.168.3.88 k8s-nod1   N">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-27T12:17:35.953Z">
+<meta property="og:updated_time" content="2019-03-27T04:17:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Kubernetes1.4.6源码搭建容器集群">
 <meta name="twitter:description" content="一、相关准备工作1.1、准备工作 准备至少两台已安装好CentOS7.2操作系统的物理机或者虚拟机（本文配置时使用的是三台KVM虚拟机）； 设置hostname命令：hostnamectl set-hostname k8s-mst      角色 ip hostname     Master 192.168.3.87 k8s-mst   Node 192.168.3.88 k8s-nod1   N">
@@ -267,7 +267,7 @@
       <div class="body-wrap"><article id="post-使用Kubernetes1.4.6源码搭建容器集群" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/" class="article-date">
+      <a href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/" class="article-date">
       <time datetime="2016-11-22T13:56:13.000Z" itemprop="datePublished">2016-11-22 Tuesday</time>
 </a>
 
@@ -425,13 +425,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></p>
+        <p><span>本文标题:</span><a href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Jason Jinyu Yu 的个人博客">Jason Jinyu Yu</a></p>
         <p><span>发布时间:</span>2016年11月22日 - 21时56分</p>
-        <p><span>最后更新:</span>2019年03月27日 - 20时17分</p>
+        <p><span>最后更新:</span>2019年03月27日 - 12时17分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/" title="使用Kubernetes1.4.6源码搭建容器集群">http://www.yujinyu.site/20161122/使用Kubernetes1.4.6源码搭建容器集群/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/20161122/使用Kubernetes1.4.6源码搭建容器集群/　　作者: Jason Jinyu Yu" title></span>
+            <span>原始链接:</span><a class="post-url" href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/" title="使用Kubernetes1.4.6源码搭建容器集群">http://www.yujinyu.site/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://www.yujinyu.site/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/　　作者: Jason Jinyu Yu" title></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -442,7 +442,7 @@
 
 <nav id="article-nav">
   
-    <a href="/20170926/lock_stat使用记录/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/posts/20170926/lock_stat使用记录/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
@@ -452,7 +452,7 @@
     </a>
   
   
-    <a href="/20161108/CRIU的安装与使用/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/posts/20161108/CRIU的安装与使用/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">CRIU的安装与使用</div>
       <strong class="article-nav-caption">></strong>
     </a>
@@ -526,18 +526,18 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/20170926/lock_stat使用记录/" title="上一篇: lock_stat使用记录">
+            <a href="/posts/20170926/lock_stat使用记录/" title="上一篇: lock_stat使用记录">
                 <i class="fa fa-angle-left"></i>
             </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/20161108/CRIU的安装与使用/" title="下一篇: CRIU的安装与使用">
+            <a href="/posts/20161108/CRIU的安装与使用/" title="下一篇: CRIU的安装与使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/posts/20190325/阅读笔记01-atc2017-bigc/">阅读笔记01-Preemptive Low Latency Datacenter Scheduling via Lightweight Virtualization</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180615/使用ss或者ssr实现Linux全局FQ/">使用ss或者ssr实现Linux系统全局FQ</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20180411/基于Kubernetes部署kong 0.13.0/">基于Kubernetes部署kong 0.13.0</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20171020/使用consul构建docker overlay网络/">使用consul构建跨主机的docker overlay网络</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20170926/lock_stat使用记录/">lock_stat使用记录</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161122/使用Kubernetes1.4.6源码搭建容器集群/">使用Kubernetes1.4.6源码搭建容器集群</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20161108/CRIU的安装与使用/">CRIU的安装与使用</a></li><li class="post-list-item"><a class="post-list-link" href="/posts/20160611/KVM虚拟机在线迁移环境配置/">KVM虚拟机在线迁移环境配置</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
@@ -609,7 +609,7 @@
 
     <script>
         $(document).ready(function() {
-            var backgroundnum = 2;
+            var backgroundnum = 16;
             var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
             $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
             $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
