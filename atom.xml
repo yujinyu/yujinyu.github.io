@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.yujinyu.site/"/>
-  <updated>2019-03-27T04:19:40.000Z</updated>
+  <updated>2019-03-28T13:24:19.077Z</updated>
   <id>http://www.yujinyu.site/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://www.yujinyu.site/posts/20190325/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B001-atc2017-bigc/"/>
     <id>http://www.yujinyu.site/posts/20190325/阅读笔记01-atc2017-bigc/</id>
     <published>2019-03-25T09:06:05.000Z</published>
-    <updated>2019-03-27T04:19:40.000Z</updated>
+    <updated>2019-03-28T13:24:19.077Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><p>会议：<a href="https://www.usenix.org/conference/atc17/technical-sessions/presentation/chen-wei" target="_blank" rel="noopener">the 2017 USENIX Annual Technical Conference (USENIX ATC ‘17)</a><br>文章原文：<a href="https://www.usenix.org/system/files/conference/atc17/atc17-chen_wei.pdf" target="_blank" rel="noopener">paper</a><br>会议报告：<a href="https://www.usenix.org/sites/default/files/conference/protected-files/atc_slides_chen_wei_0.pdf" target="_blank" rel="noopener">ppt</a></p><h1 id="动机与问题"><a href="#动机与问题" class="headerlink" title="动机与问题"></a>动机与问题</h1><p>为了提高集群资源利用率，数据中心趋向于部署异构负载。但是不同负载特性和需求不同，一方面，对延迟敏感的任务需要尽可能快地被调度到目的节点；另一方面，长时间运行的任务应该在有资源空闲的时候占用集群空闲资源来提高资源利用率。问题的关键在于如何在保证短作业性能的同时，确保集群的资源利用率最大化。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>文章提出了一种基于容器的任务抢占方式。由于容器具有可以动态调整其运行资源的特性，通过使用容器作为任务的执行单元可以实现对任务资源的动态调整。<br>基于Hadoop YARN的架构如图所示。<br><img src="/posts/20190325/阅读笔记01-atc2017-bigc/bigc-arch.png" alt="bigc-arch"></p>]]></content>
     
